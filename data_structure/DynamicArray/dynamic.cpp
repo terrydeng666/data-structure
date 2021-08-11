@@ -32,7 +32,7 @@ DynamicArray<T>::DynamicArray(const DynamicArray<T> &d)
  {
      length=d.length;
      ptr=(T*)malloc(sizeof(T)*length);
-     memcpy(ptr,d.ptr,sizeof(T)*length);
+     memcpy(ptr,d.ptr,sizeof(T)*length);//把d.ptr的東西複製sizeof(T)*length的長度到ptr
      if(ptr==NULL) std::cout<<"error";
      size=length;
  }
@@ -91,17 +91,17 @@ void DynamicArray<T>::Clear() {
 
 int main(void) {
     DynamicArray<int> array;
-    array.add(1);
-    std::cout << array[0] << std::endl;
-    array.add(2);
-    std::cout << array[1] << std::endl;
-    std::cout << array.size << std::endl;
-    array.Delete(0);
-    std::cout << array[0] << std::endl;
-    DynamicArray<int> array2(array);
-    std::cout << array2[0] << std::endl;
+    array.add(1);                          //{1}
+    std::cout << array[0] << std::endl;    //1
+    array.add(2);                          //{1,2}
+    std::cout << array[1] << std::endl;    //2
+    std::cout << array.size << std::endl;  //2
+    array.Delete(0);                       //{2}
+    std::cout << array[0] << std::endl;    //2
+    DynamicArray<int> array2(array);    
+    std::cout << array2[0] << std::endl;   //2
     DynamicArray<int> array3;
     array3=array;
-    std::cout << array3[0] << std::endl;
+    std::cout << array3[0] << std::endl;   //2
     return 0;
 }
