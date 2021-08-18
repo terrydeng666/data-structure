@@ -70,9 +70,11 @@ void Stack<T>::pop() {
      size--;
      return;
 }
+
 int main(void) {
     Stack<int> intStack;
     Stack<std::string> stringStack;
+    std::cout << intStack.empty() << std::endl;
     std::cout << intStack.getsize() << std::endl;
     intStack.push(2);
     std::cout << intStack.top() << std::endl;
@@ -88,5 +90,6 @@ int main(void) {
     std::cout << intStack.top() << std::endl;
     intStack.top()=7;
     std::cout << intStack.top() << std::endl;
+    std::cout << intStack.empty() << std::endl;
     return 0;
 }
